@@ -26,7 +26,7 @@ export function IntroScreen({ navigation }) {
 
   return (
     <ImageBackground
-      source={require("../assets/image/backGround.png")}
+      source={require("../assets/image/backGround.jpg")}
       style={styles.background}
       blurRadius={2}
     >

@@ -2,10 +2,13 @@ import { StyleSheet, Text, View, Image, ImageBackground, Animated, TouchableOpac
 import React, { useEffect } from "react";
 import { Button } from "react-native-paper";
 import * as Animatable from 'react-native-animatable';
+import { StatusBar } from 'react-native';
+import { useTheme } from 'react-native-paper';
 
 export function IntroScreen({ navigation }) {
   const fadeAnim = new Animated.Value(0);
   const slideAnim = new Animated.Value(50);
+  const theme = useTheme();
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -13,7 +16,7 @@ export function IntroScreen({ navigation }) {
       duration: 1000,
       useNativeDriver: true,
     }).start();
-    
+    //fd
     Animated.timing(slideAnim, {
       toValue: 0,
       duration: 800,
@@ -27,6 +30,11 @@ export function IntroScreen({ navigation }) {
       style={styles.background}
       blurRadius={2}
     >
+        <StatusBar
+        backgroundColor="transparent"
+        translucent
+        barStyle={theme.dark ? 'light-content' : 'dark-content'}
+      />
       <View style={styles.overlay} />
       
       <View style={styles.container}>

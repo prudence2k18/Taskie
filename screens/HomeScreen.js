@@ -3,6 +3,8 @@ import { View, FlatList, StyleSheet, Keyboard } from "react-native";
 import { TextInput, Button, Appbar, List, useTheme } from "react-native-paper";
 import { TaskItem } from "../components/TaskItem";
 import { saveTasks, loadTasks } from "../utils/storage";
+import { StatusBar } from 'react-native';
+
 
 export function HomeScreen({ navigation }) {
   const [task, setTask] = useState("");
@@ -39,6 +41,11 @@ export function HomeScreen({ navigation }) {
 
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
+        <StatusBar
+        backgroundColor="transparent"
+        translucent
+        barStyle={theme.dark ? 'light-content' : 'dark-content'}
+      />
       <Appbar.Header theme={theme}>
         <Appbar.Content 
           title="Taskie" 
